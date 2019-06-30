@@ -1,6 +1,10 @@
 ### Data
 data/
-
+cdt_data
+classifier_CNN
+results_ERTC
+results_knn
+classifier_KNN
 
 ### C
 # Object files

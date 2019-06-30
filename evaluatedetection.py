@@ -12,7 +12,7 @@ import cv2
 import shapefeatures
 import os
 from lxml import etree
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_recall_curve, auc
 from sklearn import ensemble
 import numpy as np
@@ -216,9 +216,9 @@ def displayframe(img, predictions, labels, threshold, size, step):
             x += step
         y += step
     
-    cv2.imshow('result',img)
-    cv2.waitKey(0)
-    return None
+    #cv2.imshow('result',img)
+    #cv2.waitKey(0)
+    return img
     
 if __name__=='__main__':
     '''
@@ -246,15 +246,15 @@ if __name__=='__main__':
     '''
 
     featureset = [3,7,11,12,15,17]
-    num_files = 2703
+    num_files = 2700
     train_set_proportion = .8
     test_set_proportion = 1 - train_set_proportion
     filters = [[11,'>',1000]]
     centiles = [0,25,50,75,100]
     size = 40
     step = 30
-    reusefeatures = False
-    savefeatures = True
+    reusefeatures = True
+    savefeatures = False
     reuseclassifier = False
     saveclassifier = False
     saveresults = False
@@ -281,12 +281,12 @@ if __name__=='__main__':
                         centiles=centiles,
                         loadfromfile=reusefeatures, 
                         savetofile=savefeatures,
-                        filename='Xtest.npy') 
+                        filename='Xtest_cf2.npy') 
                                                                                  
     ytrain = getlabels(trainfiles, size, step,
                       loadfromfile=reusefeatures,
                       savetofile=savefeatures,
-                      filename='ytest.npy')     
+                      filename='ytest_cf2.npy')     
                             
                          
     
@@ -297,12 +297,12 @@ if __name__=='__main__':
                         centiles=centiles,
                         loadfromfile=reusefeatures, 
                         savetofile=savefeatures,
-                        filename='Xtest.npy') 
+                        filename='Xtest_cf2.npy') 
                                                                                  
     ytest = getlabels(testfiles, size, step,
                       loadfromfile=reusefeatures,
                       savetofile=savefeatures,
-                      filename='ytest.npy')     
+                      filename='ytest_cf2.npy')     
                             
     if reuseclassifier:
         classifier = pickle.load(open(FEATURES_DIR + 'classifier.pkl', 'rb')) 
