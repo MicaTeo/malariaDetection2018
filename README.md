@@ -1,4 +1,5 @@
-# mobile-microscopy
+# Identifying Malaria Parasites from Malaria
+
 Automated laboratory diagnosis for mobile devices
 
 **To run this code:**
@@ -21,3 +22,9 @@ http://cit.mak.ac.ug/staff/jquinn/papers/AutomatedMalariaDiagnosisChapter.pdf
 2703 blood smear images with bounding boxes of 50,255 malaria parasites.
 
 http://air.ug/downloads/plasmodium-images.zip
+
+---
+Top: A random selection of positive patches. Bottom: A random selection of negative patches. 
+![](https://github.com/MicaTeo/MalariaDetection2018/blob/master/wanted/some_samples_0_1.png)
+
+
